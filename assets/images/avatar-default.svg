@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081A2F" />
+      <stop offset="50%" stop-color="#0E2847" />
+      <stop offset="100%" stop-color="#19426D" />
+    </linearGradient>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#D0E2F5" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E4B7A" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0B223D" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo Institucional -->
+  <rect width="600" height="600" fill="url(#bgGrad)" />
+
+  <!-- Círculos Decorativos Concêntricos Sutis -->
+  <circle cx="300" cy="270" r="230" fill="none" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1.5" />
+  <circle cx="300" cy="270" r="180" fill="none" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1.5" />
+  <circle cx="300" cy="270" r="130" fill="url(#circleGrad)" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+
+  <!-- Silhueta Executiva Institucional -->
+  <g id="avatar-silhouette">
+    <!-- Cabeça -->
+    <circle cx="300" cy="225" r="58" fill="url(#avatarGrad)" />
+    
+    <!-- Ombros e Tronco em Formato de Terno Elegante -->
+    <path d="M 185 410 C 185 330, 225 305, 300 305 C 375 305, 415 330, 415 410 C 415 425, 400 435, 385 435 L 215 435 C 200 435, 185 425, 185 410 Z" fill="url(#avatarGrad)" />
+    
+    <!-- Detalhe da Gola/Lapela -->
+    <path d="M 270 306 L 300 365 L 330 306 Z" fill="#0E2847" />
+    <path d="M 293 330 L 300 380 L 307 330 Z" fill="#19426D" />
+  </g>
+
+  <!-- Selo Institucional Inferior -->
+  <g transform="translate(300, 505)" text-anchor="middle">
+    <text font-family="'Cinzel', 'Playfair Display', 'Times New Roman', serif" font-size="19" font-weight="700" fill="#FFFFFF" fill-opacity="0.9" letter-spacing="4">LUPORINI &amp; MANCINI</text>
+    <text y="26" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="12" font-weight="600" fill="#90B2D8" letter-spacing="3">ADVOGADOS ASSOCIADOS</text>
+  </g>
+</svg>
