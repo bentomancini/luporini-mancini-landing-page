@@ -143,11 +143,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Envio do formulário do modal
   if (modalForm) {
+    const formatoSelect = document.getElementById('modal-formato');
+    const submitBtn = modalForm.querySelector('button[type="submit"]');
+    const channelHint = document.getElementById('modal-channel-hint');
+
+    const updateBookingChannel = () => {
+      const isEmail = formatoSelect.value === 'E-mail';
+      submitBtn.textContent = isEmail ? 'Continuar por E-mail' : 'Continuar no WhatsApp';
+      channelHint.textContent = isEmail
+        ? 'Preencha seus dados. Ao continuar, seu aplicativo de e-mail será aberto com o destinatário, o assunto e a mensagem preenchidos. Confira os dados e clique em Enviar para concluir a solicitação.'
+        : 'Preencha seus dados e escolha o formato de atendimento. Ao continuar, confira a mensagem e toque em Enviar no WhatsApp da advocacia.';
+    };
+
+    formatoSelect.addEventListener('change', updateBookingChannel);
+    updateBookingChannel();
+
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const nome = document.getElementById('modal-nome').value.trim();
       const telefone = document.getElementById('modal-tel').value.trim();
-      const formato = document.getElementById('modal-formato').value;
+      const formato = formatoSelect.value;
 
       const message = [
         'Olá! Gostaria de agendar uma consulta com a Luporini & Mancini.',
@@ -157,7 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `Formato de atendimento: ${formato}`
       ].join('\n');
 
-      openWhatsApp(message);
+      if (formato === 'E-mail') {
+        const subject = 'Agendamento de consulta - Luporini & Mancini';
+        const body = message.replace(/\n/g, '\r\n');
+        const emailUrl = `mailto:contatoluporiniemancini@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.assign(emailUrl);
+      } else {
+        openWhatsApp(message);
+      }
     });
   }
 
