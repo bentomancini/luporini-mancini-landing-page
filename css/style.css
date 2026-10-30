@@ -1601,12 +1601,42 @@ img {
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (BREAKPOINTS)
+   RESPONSIVIDADE (BREAKPOINTS PARA PC, TABLET E MOBILE)
    ========================================================================== */
+
+/* Elemento CTA exclusivo para mobile (escondido em PC) */
+.mobile-nav-cta {
+  display: none;
+}
+
+/* Telas Médias / Tablets / Notebooks Compactos (até 1024px) */
 @media (max-width: 1024px) {
+  .nav-container {
+    padding: 0 1.8rem;
+    height: 84px;
+  }
+
+  .brand-logo-img {
+    height: 52px;
+  }
+
+  .nav-menu {
+    gap: 1.2rem;
+    margin: 0 1.2rem 0 auto;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+  }
+
+  .hero-section {
+    padding: 120px 0 70px;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 3rem;
   }
   
   .hero-content p.hero-lead {
@@ -1635,6 +1665,12 @@ img {
   
   .practice-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   
   .pillars-grid {
@@ -1647,76 +1683,332 @@ img {
   }
 }
 
+/* Telas Mobile e Tablets Pequenos (até 768px) */
 @media (max-width: 768px) {
+  .site-header {
+    background-color: rgba(255, 255, 255, 0.99);
+  }
+
+  .nav-container {
+    padding: 0 1.2rem;
+    height: 76px;
+  }
+
+  .site-header.scrolled .nav-container {
+    height: 70px;
+    padding: 0 1.2rem;
+  }
+
+  .brand-logo-img {
+    height: 42px;
+    max-height: 44px;
+    max-width: calc(100vw - 84px);
+  }
+
+  .site-header.scrolled .brand-logo-img {
+    height: 38px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    color: var(--color-navy-primary);
+  }
+
+  .header-actions .btn {
+    display: none;
+  }
+
   .nav-menu {
     position: fixed;
-    top: 84px;
+    top: 76px;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
     background-color: var(--color-white);
     flex-direction: column;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    border-bottom: 1px solid var(--color-border-light);
-    transform: translateY(-150%);
-    transition: transform 0.3s ease;
+    align-items: flex-start;
+    padding: 1.8rem 1.4rem 2.2rem;
+    box-shadow: 0 14px 28px rgba(11, 34, 61, 0.12);
+    border-bottom: 2px solid var(--color-border-light);
+    transform: translateY(-160%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    margin: 0;
+    z-index: 999;
   }
   
   .nav-menu.open {
     transform: translateY(0);
   }
-  
-  .menu-toggle {
-    display: block;
+
+  .nav-menu li {
+    width: 100%;
   }
-  
-  .header-actions .btn {
-    display: none;
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .mobile-nav-cta {
+    display: block;
+    width: 100%;
+    padding-top: 0.8rem;
+  }
+
+  .hero-section {
+    padding: 110px 0 50px;
+    min-height: auto;
   }
   
   .hero-content h1 {
-    font-size: 2.8rem;
+    font-size: 2.35rem;
+    line-height: 1.18;
+  }
+
+  .hero-content p.hero-lead {
+    font-size: 1.05rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
   }
   
   .hero-metrics-bar {
     grid-template-columns: 1fr;
     gap: 1.2rem;
+    padding-top: 1.5rem;
+  }
+
+  .hero-image-frame img {
+    height: 320px;
+  }
+
+  .hero-floating-card {
+    position: static;
+    margin-top: 1rem;
+    max-width: 100%;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .about-section {
+    padding: 65px 0;
+  }
+
+  .about-monogram-box {
+    padding: 2.2rem 1.4rem;
+  }
+
+  .about-monogram-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .about-content h2 {
+    font-size: 2.1rem;
+  }
+
+  .about-features-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .practice-section {
+    padding: 65px 0;
+  }
+
+  .practice-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .practice-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .partners-section {
+    padding: 65px 0;
   }
   
   .partners-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  
-  .practice-grid {
-    grid-template-columns: 1fr;
+
+  .partner-photo-wrap {
+    height: 320px;
+  }
+
+  .partner-info {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .pillars-section {
+    padding: 65px 0;
   }
   
   .pillars-grid {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .pillar-item {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .assessment-section {
+    padding: 65px 0;
+  }
+
+  .assessment-box {
+    padding: 1.8rem 1.2rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .assessment-steps {
+    margin-bottom: 1.6rem;
+  }
+
+  .step-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .step-label {
+    font-size: 0.72rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin: 1.2rem 0 1.6rem;
+  }
+
+  .option-card {
+    padding: 1rem;
+  }
+
+  .testimonials-section {
+    padding: 65px 0;
   }
   
   .testimonials-grid {
     grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .faq-section {
+    padding: 65px 0;
+  }
+
+  .faq-question {
+    padding: 1.1rem 1.2rem;
+    font-size: 0.96rem;
+  }
+
+  .contact-section {
+    padding: 65px 0;
   }
   
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-info-card {
+    padding: 2rem 1.3rem;
+  }
+
+  .contact-info-card h2 {
+    font-size: 2rem;
+  }
+
+  .contact-form-card {
+    padding: 2rem 1.3rem;
   }
   
   .form-row {
     grid-template-columns: 1fr;
+    gap: 0;
   }
-  
-  .options-grid {
-    grid-template-columns: 1fr;
+
+  .modal-overlay {
+    padding: 0.8rem;
+  }
+
+  .modal-box {
+    padding: 1.8rem 1.2rem;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+
+  .whatsapp-float-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-float-btn svg {
+    width: 28px;
+    height: 28px;
   }
   
   .footer-top {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 0.8rem;
+  }
+}
+
+/* Telas Ultra Compactas (Smartphones até 480px) */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.9rem;
+  }
+
+  .brand-logo-img {
+    height: 36px;
+    max-width: calc(100vw - 75px);
+  }
+
+  .section-title-wrap h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.95rem;
+  }
+
+  .hero-metrics-bar .metric-item h4 {
+    font-size: 1.85rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
   }
 }

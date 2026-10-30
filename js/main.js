@@ -42,13 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Toggle do menu mobile
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+      const isOpen = navMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      if (isOpen) {
+        menuToggle.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+      } else {
+        menuToggle.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+      }
     });
 
     // Fechar menu mobile ao clicar em um link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
       });
     });
   }
@@ -95,8 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
+  const openModalMobileBtn = document.getElementById('open-modal-mobile-btn');
+
   if (openModalBtn) {
     openModalBtn.addEventListener('click', openModal);
+  }
+
+  if (openModalMobileBtn) {
+    openModalMobileBtn.addEventListener('click', () => {
+      if (navMenu) navMenu.classList.remove('open');
+      openModal();
+    });
   }
 
   if (closeModalBtn) {
