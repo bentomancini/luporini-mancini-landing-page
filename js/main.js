@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 5. WIDGET DE DIAGNÓSTICO JURÍDICO INTERATIVO (GLOBAL FUNCTIONS)
 // ==========================================================================
 let assessmentState = {
-  perfil: 'civel',
+  perfil: 'civil',
   objetivo: 'iniciar_acao'
 };
 
@@ -230,14 +230,14 @@ function goToStep(stepNumber) {
     const resultElement = document.getElementById('assessment-result-text');
     let recommendation = '';
 
-    if (assessmentState.perfil === 'civel') {
-      recommendation = 'Para demandas de Direito Cível, nosso sócio Dr. Luís Antônio Luporini Júnior analisará os contratos, títulos e provas materiais para traçar a melhor estratégia judicial ou extrajudicial com máximo respaldo.';
+    if (assessmentState.perfil === 'civil') {
+      recommendation = 'Para demandas de Direito Civil, nossos sócios Dr. Luís Antônio Luporini Júnior, Dra. Bruna Cristina Prudencio Luporini e Dra. Anna Clara Mancini Silva oferecem assessoria em contratos, responsabilidade civil e defesa de direitos.';
     } else if (assessmentState.perfil === 'trabalhista') {
-      recommendation = 'Para questões de Direito Trabalhista, nossa sócia Dra. Bruna Cristina Prudencio Luporini oferece assessoria combativa na defesa dos seus direitos, prevenção de riscos e negociação com respaldo técnico.';
+      recommendation = 'Para questões de Direito Trabalhista, nossos sócios Dr. Luís Antônio Luporini Júnior e Dra. Anna Clara Mancini Silva oferecem assessoria na defesa de direitos, análise de relações de trabalho e negociação de acordos.';
     } else if (assessmentState.perfil === 'imobiliario') {
-      recommendation = 'Para o Direito Imobiliário, nossa sócia Dra. Anna Clara Mancini da Silva realiza due diligence detalhada para compra, venda, posse, usucapião e elaboração de contratos seguros.';
+      recommendation = 'Para o Direito Imobiliário, nossa sócia-fundadora Dra. Bruna Cristina Prudencio Luporini oferece assessoria em compra e venda de imóveis, locações, usucapião, regularização patrimonial e elaboração de contratos seguros.';
     } else if (assessmentState.perfil === 'previdenciario') {
-      recommendation = 'Para o Direito Previdenciário, nossa especialista Dra. Anna Clara Mancini da Silva realiza planejamento previdenciário e análise do CNIS para obter o melhor benefício ou revisão junto ao INSS e à Justiça.';
+      recommendation = 'Para o Direito Previdenciário, nossos sócios Dr. Luís Antônio Luporini Júnior e Dra. Anna Clara Mancini Silva realizam planejamento previdenciário e análise do CNIS para concessão e revisão de benefícios junto ao INSS e à Justiça.';
     } else {
       recommendation = 'Com base no seu perfil, recomendamos uma consulta direta com um dos nossos sócios para traçar uma estratégia sob medida para seu objetivo.';
     }
