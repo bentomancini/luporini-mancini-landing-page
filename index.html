@@ -46,7 +46,7 @@
           <span>Agendar Consulta</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu" aria-controls="nav-menu" aria-expanded="false">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
@@ -58,7 +58,17 @@
          HERO SECTION
          ========================================================================== -->
     <section class="hero-section" id="inicio">
-      <div class="hero-bg-accent"></div>
+      <div class="hero-background" aria-hidden="true">
+        <img
+          src="assets/images/hero-justice-bw.webp"
+          srcset="assets/images/hero-justice-bw-1200.webp 1200w, assets/images/hero-justice-bw.webp 2400w"
+          sizes="100vw"
+          width="2400"
+          height="1600"
+          alt=""
+          fetchpriority="high"
+          decoding="async">
+      </div>
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="badge-tag">
@@ -93,20 +103,6 @@
           </div>
         </div>
 
-        <div class="hero-image-card">
-          <div class="hero-image-frame">
-            <img src="assets/images/hero.jpg" alt="Sede Luporini & Mancini Advogados Associados">
-          </div>
-          <div class="hero-floating-card">
-            <div class="icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="text-box">
-              <h5>Atuação Estratégica</h5>
-              <p>Proteção de direitos, segurança jurídica e solidez patrimonial.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
