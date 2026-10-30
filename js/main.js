@@ -141,11 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const nome = document.getElementById('modal-nome').value;
-      const tel = document.getElementById('modal-tel').value;
       const formato = document.getElementById('modal-formato').value;
 
       // Mensagem de confirmação elegante
-      alert(`Obrigado, ${nome}! Sua solicitação de agendamento em formato "${formato}" foi recebida. Um dos sócios da Luporini & Mancini entrará em contato pelo telefone ${tel}.`);
+      alert(`Obrigado, ${nome}! Sua solicitação de consulta via "${formato}" foi recebida. Nossa equipe jurídica entrará em contato prontamente.`);
       modalForm.reset();
       closeModal();
     });
