@@ -86,6 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 3. MODAL DE AGENDAMENTO
   // ==========================================================================
+  const openWhatsApp = (message) => {
+    const whatsappUrl = `https://wa.me/5519999789664?text=${encodeURIComponent(message)}`;
+    window.location.assign(whatsappUrl);
+  };
+
   const bookingModal = document.getElementById('booking-modal');
   const openModalBtn = document.getElementById('open-modal-nav-btn');
   const closeModalBtn = document.getElementById('close-modal-btn');
@@ -140,13 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalForm) {
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nome = document.getElementById('modal-nome').value;
+      const nome = document.getElementById('modal-nome').value.trim();
+      const telefone = document.getElementById('modal-tel').value.trim();
       const formato = document.getElementById('modal-formato').value;
 
-      // Mensagem de confirmação elegante
-      alert(`Obrigado, ${nome}! Sua solicitação de consulta via "${formato}" foi recebida. Nossa equipe jurídica entrará em contato prontamente.`);
-      modalForm.reset();
-      closeModal();
+      const message = [
+        'Olá! Gostaria de agendar uma consulta com a Luporini & Mancini.',
+        '',
+        `Nome: ${nome}`,
+        `Telefone / WhatsApp: ${telefone}`,
+        `Formato de atendimento: ${formato}`
+      ].join('\n');
+
+      openWhatsApp(message);
     });
   }
 
@@ -157,11 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nome = document.getElementById('nome').value;
+      const nome = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const email = document.getElementById('email').value.trim();
       const area = document.getElementById('area').value;
+      const mensagem = document.getElementById('mensagem').value.trim();
 
-      alert(`Agradecemos seu contato, ${nome}. Sua solicitação referente à área de "${area}" foi direcionada aos sócios responsáveis. Retornaremos com discrição e agilidade.`);
-      contactForm.reset();
+      const message = [
+        'Olá! Gostaria de solicitar uma consulta com a Luporini & Mancini.',
+        '',
+        `Nome: ${nome}`,
+        `Telefone / WhatsApp: ${telefone}`,
+        `E-mail: ${email}`,
+        `Área de interesse: ${area}`,
+        '',
+        'Resumo do cenário ou dúvida:',
+        mensagem
+      ].join('\n');
+
+      openWhatsApp(message);
     });
   }
 });
