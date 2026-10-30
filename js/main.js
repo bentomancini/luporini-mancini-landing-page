@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // 5. WIDGET DE DIAGNÓSTICO JURÍDICO INTERATIVO (GLOBAL FUNCTIONS)
 // ==========================================================================
 let assessmentState = {
-  perfil: 'empresa',
-  objetivo: 'protecao'
+  perfil: 'civel',
+  objetivo: 'iniciar_acao'
 };
 
 function selectOption(element, category) {
@@ -184,19 +184,21 @@ function goToStep(stepNumber) {
     }
   }
 
-  // Se chegou na etapa 3, calcula o texto personalizado
+  // Se chegou na etapa 3, calcula o parecer personalizado
   if (stepNumber === 3) {
     const resultElement = document.getElementById('assessment-result-text');
     let recommendation = '';
 
-    if (assessmentState.perfil === 'empresa') {
-      recommendation = 'Para o perfil Empresarial, estruturamos diagnósticos de governança, revisão de contratos e planejamento preventivo com foco em blindar a operação e mitigar passivos fiscais e trabalhistas.';
-    } else if (assessmentState.perfil === 'familia') {
-      recommendation = 'Para o perfil Familiar e Patrimonial, a constituição de Holding Patrimonial e o Planejamento Sucessório reduzem drasticamente o custo do inventário e garantem harmonia familiar com proteção de ativos.';
-    } else if (assessmentState.perfil === 'investidor') {
-      recommendation = 'Para Investimentos e Mercado Imobiliário, realizamos due diligence rigorosa para aquisições seguras, elaboração de contratos societários e otimização da carga tributária na locação e venda.';
+    if (assessmentState.perfil === 'civel') {
+      recommendation = 'Para demandas de Direito Cível, nosso sócio Dr. Luís Antônio Luporini Júnior analisará os contratos, títulos e provas materiais para traçar a melhor estratégia judicial ou extrajudicial com máximo respaldo.';
+    } else if (assessmentState.perfil === 'trabalhista') {
+      recommendation = 'Para questões de Direito Trabalhista, nossa sócia Dra. Bruna Cristina Prudencio Luporini oferece assessoria combativa na defesa dos seus direitos, prevenção de riscos e negociação com respaldo técnico.';
+    } else if (assessmentState.perfil === 'imobiliario') {
+      recommendation = 'Para o Direito Imobiliário, nossa sócia Dra. Anna Clara Mancini da Silva realiza due diligence detalhada para compra, venda, posse, usucapião e elaboração de contratos seguros.';
+    } else if (assessmentState.perfil === 'previdenciario') {
+      recommendation = 'Para o Direito Previdenciário, nossa especialista Dra. Anna Clara Mancini da Silva realiza planejamento previdenciário e análise do CNIS para obter o melhor benefício ou revisão junto ao INSS e à Justiça.';
     } else {
-      recommendation = 'Para demandas com litígio ativo ou prazo judicial, nossa atuação é focada em estratégia contenciosa de precisão perante os tribunais para preservar os seus direitos com máxima combatividade.';
+      recommendation = 'Com base no seu perfil, recomendamos uma consulta direta com um dos nossos sócios para traçar uma estratégia sob medida para seu objetivo.';
     }
 
     resultElement.textContent = recommendation;
